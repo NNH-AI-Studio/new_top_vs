@@ -1,0 +1,95 @@
+<!-- Rating System -->
+<div class="rating-section">
+    <h3>Rate this comparison:</h3>
+    <div class="star-rating" data-rating="0">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+    </div>
+    <p class="rating-text">Click to rate (0 votes)</p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const stars = document.querySelectorAll('.star');
+    const ratingText = document.querySelector('.rating-text');
+    let currentRating = 0;
+    
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            const rating = parseInt(this.getAttribute('data-value'));
+            currentRating = rating;
+            
+            // Update visual stars
+            stars.forEach((s, index) => {
+                if (index < rating) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+            
+            // Update text
+            ratingText.textContent = `Thank you for rating! (${rating}/5)`;
+            
+            // Here you would send the rating to your backend
+            // saveRating(rating);
+        });
+        
+        star.addEventListener('mouseenter', function() {
+            const rating = parseInt(this.getAttribute('data-value'));
+            stars.forEach((s, index) => {
+                if (index < rating) {
+                    s.classList.add('hover');
+                } else {
+                    s.classList.remove('hover');
+                }
+            });
+        });
+    });
+    
+    document.querySelector('.star-rating').addEventListener('mouseleave', function() {
+        stars.forEach(s => s.classList.remove('hover'));
+    });
+});
+</script>
+
+<style>
+.rating-section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.star-rating {
+    font-size: 2rem;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+.star {
+    color: #d1d5db;
+    transition: color 0.2s ease;
+    display: inline-block;
+    margin: 0 0.25rem;
+}
+
+.star:hover,
+.star.hover {
+    color: #fbbf24;
+}
+
+.star.active {
+    color: #f59e0b;
+}
+
+.rating-text {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+</style>

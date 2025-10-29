@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites - Products VS</title>
+    <meta name="description" content="Your saved comparison bookmarks">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/theme-minimal.css">
+    <link rel="stylesheet" href="/css/features.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <style>
+        .favorites-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .favorites-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .favorites-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .favorite-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .favorite-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .favorite-card .category-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .favorite-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #2c3e50;
+        }
+        .favorite-card p {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .favorite-card .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        .favorite-card .meta span {
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+        .remove-favorite {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .remove-favorite:hover {
+            transform: scale(1.1);
+            background: #c0392b;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .empty-state h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #7f8c8d;
+        }
+        .empty-state p {
+            color: #95a5a6;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .empty-state .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .empty-state .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Products<span>VS</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/en/" class="nav-link">Comparisons</a>
+                <a href="/favorites.html" class="nav-link active">Favorites</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Favorites Header -->
+    <div class="favorites-header">
+        <div class="container">
+            <h1>❤️ My Favorites</h1>
+            <p style="font-size: 1.1rem; opacity: 0.8;">Comparisons you've saved for later</p>
+        </div>
+    </div>
+
+    <!-- Favorites Container -->
+    <div class="favorites-container">
+        <div id="favorites-content">
+            <div style="text-align: center; padding: 3rem;">
+                <p style="font-size: 1.2rem; color: #7f8c8d;">Loading your favorites...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Products VS</h4>
+                <p>Professional comparison website providing detailed analysis in both English and Arabic languages.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/en/">English Comparisons</a></li>
+                    <li><a href="/ar/">Arabic Comparisons</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: info@productsvs.com</p>
+                <p>&copy; 2025 Products VS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { getFavoriteComparisons, toggleFavorite } from '/src/utils/favorites.js';
+
+        let userIdentifier = localStorage.getItem('user_id');
+        if (!userIdentifier) {
+            userIdentifier = 'user_' + Math.random().toString(36).substr(2, 9) + Date.now();
+            localStorage.setItem('user_id', userIdentifier);
+        }
+
+        async function loadFavorites() {
+            try {
+                const favorites = await getFavoriteComparisons(userIdentifier);
+                renderFavorites(favorites);
+            } catch (error) {
+                console.error('Error loading favorites:', error);
+                document.getElementById('favorites-content').innerHTML = `
+                    <div class="empty-state">
+                        <h2>Error Loading Favorites</h2>
+                        <p>Please try again later</p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderFavorites(favorites) {
+            const container = document.getElementById('favorites-content');
+
+            if (!favorites || favorites.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h2>No Favorites Yet</h2>
+                        <p>Start exploring comparisons and save your favorites!</p>
+                        <a href="/" class="cta-button">Browse Comparisons</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const html = `
+                <div class="favorites-grid">
+                    ${favorites.map(fav => {
+                        const comp = fav.comparison;
+                        if (!comp) return '';
+
+                        return `
+                            <div class="favorite-card" data-favorite-id="${fav.id}">
+                                <button class="remove-favorite" data-comparison-id="${comp.id}" title="Remove from favorites">×</button>
+                                ${comp.category ? `<span class="category-badge">${comp.category.icon} ${comp.category.name_en}</span>` : ''}
+                                <h3>${comp.title_en}</h3>
+                                <p>${comp.meta_description_en.substring(0, 120)}...</p>
+                                <div class="meta">
+                                    <span>👁️ ${comp.view_count.toLocaleString()} views</span>
+                                    <a href="/comparison.html?slug=${comp.slug}" style="color: #3498db; font-weight: 600; text-decoration: none;">View →</a>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+
+            container.innerHTML = html;
+
+            document.querySelectorAll('.remove-favorite').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const comparisonId = btn.getAttribute('data-comparison-id');
+                    await removeFavorite(comparisonId, btn.closest('.favorite-card'));
+                });
+            });
+        }
+
+        async function removeFavorite(comparisonId, cardElement) {
+            if (!confirm('Remove this comparison from favorites?')) return;
+
+            try {
+                await toggleFavorite(comparisonId, userIdentifier);
+
+                cardElement.style.animation = 'fadeOut 0.3s ease-out';
+                setTimeout(() => {
+                    cardElement.remove();
+                    const remaining = document.querySelectorAll('.favorite-card').length;
+                    if (remaining === 0) {
+                        loadFavorites();
+                    }
+                }, 300);
+
+            } catch (error) {
+                console.error('Error removing favorite:', error);
+                alert('Error removing favorite. Please try again.');
+            }
+        }
+
+        loadFavorites();
+    </script>
+
+    <style>
+        @keyframes fadeOut {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(0.9); }
+        }
+    </style>
+</body>
+</html>

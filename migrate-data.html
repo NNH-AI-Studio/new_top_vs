@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Migration Tool</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+        .log {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .success { color: #27ae60; }
+        .error { color: #e74c3c; }
+        .info { color: #3498db; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Battle Data Migration</h1>
+        <p class="subtitle">This tool will migrate product data from the comparison system to the database.</p>
+
+        <div>
+            <button id="migrateBtn" onclick="migrateProducts()">Migrate Products</button>
+            <button id="checkBtn" onclick="checkData()">Check Existing Data</button>
+        </div>
+
+        <div id="log" class="log"></div>
+    </div>
+
+    <script type="module">
+        import { supabase } from './src/config/supabase.js';
+        import { migrateProducts } from './src/utils/migrate-products.js';
+
+        window.supabase = supabase;
+        window.migrateProducts = migrateProducts;
+
+        window.log = function(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type;
+            logDiv.innerHTML += `<div class="${className}">[${timestamp}] ${message}</div>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        };
+
+        window.migrateProducts = async function() {
+            const btn = document.getElementById('migrateBtn');
+            btn.disabled = true;
+            log('Starting product migration...', 'info');
+
+            try {
+                const { data: categories } = await supabase
+                    .from('categories')
+                    .select('*');
+
+                if (!categories || categories.length === 0) {
+                    log('No categories found! Creating categories first...', 'info');
+
+                    const categoriesToInsert = [
+                        { name_en: 'Streaming Services', name_ar: 'خدمات البث', slug: 'streaming', icon: '📺' },
+                        { name_en: 'Technology', name_ar: 'التكنولوجيا', slug: 'tech', icon: '💻' },
+                        { name_en: 'Travel', name_ar: 'السفر', slug: 'travel', icon: '✈️' },
+                        { name_en: 'Lifestyle', name_ar: 'نمط الحياة', slug: 'lifestyle', icon: '🏃' },
+                        { name_en: 'Shopping', name_ar: 'التسوق', slug: 'shopping', icon: '🛒' }
+                    ];
+
+                    const { error: catError } = await supabase
+                        .from('categories')
+                        .upsert(categoriesToInsert, { onConflict: 'slug' });
+
+                    if (catError) {
+                        log(`Error creating categories: ${catError.message}`, 'error');
+                        btn.disabled = false;
+                        return;
+                    }
+
+                    log('Categories created successfully!', 'success');
+                }
+
+                log('Migrating products...', 'info');
+                const result = await migrateProducts();
+
+                if (result.success) {
+                    log(`Successfully migrated ${result.data.length} products!`, 'success');
+                    log('Migration complete!', 'success');
+                } else {
+                    log(`Error: ${result.error?.message || 'Unknown error'}`, 'error');
+                }
+            } catch (err) {
+                log(`Error: ${err.message}`, 'error');
+            }
+
+            btn.disabled = false;
+        };
+
+        window.checkData = async function() {
+            const btn = document.getElementById('checkBtn');
+            btn.disabled = true;
+            log('Checking existing data...', 'info');
+
+            try {
+                const { data: categories, error: catError } = await supabase
+                    .from('categories')
+                    .select('*');
+
+                if (catError) {
+                    log(`Error fetching categories: ${catError.message}`, 'error');
+                } else {
+                    log(`Found ${categories.length} categories`, 'success');
+                }
+
+                const { data: products, error: prodError } = await supabase
+                    .from('products')
+                    .select('*');
+
+                if (prodError) {
+                    log(`Error fetching products: ${prodError.message}`, 'error');
+                } else {
+                    log(`Found ${products.length} products`, 'success');
+                    if (products.length > 0) {
+                        products.forEach(p => {
+                            log(`  - ${p.name_en} (${p.slug})`, 'info');
+                        });
+                    }
+                }
+
+                const { data: battles, error: battleError } = await supabase
+                    .from('battle_results')
+                    .select('*');
+
+                if (battleError) {
+                    log(`Error fetching battles: ${battleError.message}`, 'error');
+                } else {
+                    log(`Found ${battles.length} battle results`, 'success');
+                }
+            } catch (err) {
+                log(`Error: ${err.message}`, 'error');
+            }
+
+            btn.disabled = false;
+        };
+
+        log('Migration tool ready!', 'success');
+        log('Click "Migrate Products" to start migration', 'info');
+    </script>
+</body>
+</html>

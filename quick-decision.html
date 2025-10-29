@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Decision Tool - Find Your Perfect Match | Products VS</title>
+    <meta name="description" content="Answer 5 quick questions and get personalized product recommendations in 60 seconds. Smart comparison tool for faster decisions.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/theme-minimal.css">
+    <link rel="stylesheet" href="css/features.css">
+    <link rel="stylesheet" href="css/quick-decision-ultra-minimal.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://www.productsvs.com/quick-decision.html">
+    
+    <!-- SEO and Social Media Tags -->
+    <meta property="og:title" content="Quick Decision Tool - Products VS">
+    <meta property="og:description" content="Get personalized product recommendations in 60 seconds">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.productsvs.com/quick-decision.html">
+    <meta property="og:image" content="https://www.productsvs.com/images/og-image.svg">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script src="js/analytics.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2446710277775155"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Products<span>VS</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/en/" class="nav-link">Comparisons</a>
+                <a href="/quick-decision.html" class="nav-link active">Quick Decision</a>
+                <div class="language-switcher">
+                    <a href="/ar/" class="lang-btn">العربية</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="container">
+            <a href="/">Home</a>
+            <span>›</span>
+            <span class="current">Quick Decision Tool</span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1>Quick Decision Tool</h1>
+                <p class="hero-subtitle">Answer 5 quick questions and get your perfect recommendation in 60 seconds!</p>
+                <div class="comparison-meta">
+                    <span>Smart AI-Powered Recommendations</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Container -->
+        <section class="qd-quiz-section">
+        <div class="container">
+            <div class="qd-quiz-card">
+                <!-- Progress Bar -->
+                <div class="qd-progress-container">
+                    <div class="qd-progress-bar" id="progressBar"></div>
+                    <div class="qd-progress-text">
+                        Question <span id="currentQuestion">1</span> of <span id="totalQuestions">5</span>
+                    </div>
+                </div>
+
+                <!-- Quiz Content -->
+                <div id="quizContent">
+                    <!-- Questions will be inserted here by JavaScript -->
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="qd-nav-buttons" id="navButtons">
+                    <button class="qd-btn qd-btn-secondary" id="backBtn" style="display: none;">
+                        ← Back
+                    </button>
+                    <button class="qd-btn qd-btn-primary" id="nextBtn" disabled>
+                        Next →
+                    </button>
+                </div>
+
+                <!-- Result Section (hidden initially) -->
+                <div id="resultSection" style="display: none;">
+                    <div class="qd-result">
+                        <div class="result-icon">✓</div>
+                        <h2 class="result-title">Your Perfect Match!</h2>
+                        <div class="result-product" id="resultProduct"></div>
+                        <div class="result-details" id="resultDetails"></div>
+                        <div class="result-actions">
+                            <a href="#" id="readComparisonBtn" class="qd-btn qd-btn-primary">
+                                Read Full Comparison →
+                            </a>
+                            <button class="qd-btn qd-btn-secondary" id="restartBtn">
+                                ↻ Take Quiz Again
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Categories -->
+            <div class="qd-categories">
+                <h3 class="categories-title">Or choose a category:</h3>
+                <div class="categories-grid">
+                    <button class="category-card" data-category="smartphones">
+                        <span class="category-name">Smartphones</span>
+                    </button>
+                    <button class="category-card" data-category="laptops">
+                        <span class="category-name">Laptops</span>
+                    </button>
+                    <button class="category-card" data-category="streaming">
+                        <span class="category-name">Streaming</span>
+                    </button>
+                    <button class="category-card" data-category="music">
+                        <span class="category-name">Music Apps</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">Products<span>VS</span></h3>
+                    <p class="footer-text">Smart comparisons for smarter decisions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/en/">All Comparisons</a></li>
+                        <li><a href="/quick-decision.html">Quick Decision Tool</a></li>
+                        <li><a href="/about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Products VS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/quick-decision-clean.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

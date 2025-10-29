@@ -1,0 +1,106 @@
+<!-- Enhanced Breadcrumbs with Schema.org Markup -->
+<!-- Replace existing breadcrumbs with this version -->
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <!-- Home -->
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/" title="Products VS Homepage">
+                    <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+
+            <li class="breadcrumb-separator" aria-hidden="true">›</li>
+
+            <!-- Language/Comparisons Hub -->
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/en/" title="All English Comparisons">
+                    <span itemprop="name">Comparisons</span>
+                </a>
+                <meta itemprop="position" content="2" />
+            </li>
+
+            <!-- Category (if applicable) -->
+            <li class="breadcrumb-separator" aria-hidden="true">›</li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/en/streaming.html" title="Streaming Service Comparisons">
+                    <span itemprop="name">Streaming</span>
+                </a>
+                <meta itemprop="position" content="3" />
+            </li>
+
+            <!-- Current Page -->
+            <li class="breadcrumb-separator" aria-hidden="true">›</li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name" class="current" aria-current="page">
+                    Netflix vs Disney+
+                </span>
+                <meta itemprop="position" content="4" />
+            </li>
+        </ol>
+    </div>
+</nav>
+
+<style>
+.breadcrumbs {
+    background: var(--bg-secondary, #f8f8f8);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border, #e0e0e0);
+    font-size: 0.875rem;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-list li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.breadcrumb-list a {
+    color: var(--text-secondary, #666);
+    text-decoration: none;
+    transition: color 0.2s;
+    border: none;
+}
+
+.breadcrumb-list a:hover {
+    color: var(--text, #000);
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    color: var(--text-light, #999);
+    margin: 0 0.25rem;
+}
+
+.breadcrumb-list .current {
+    color: var(--text, #000);
+    font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .breadcrumbs {
+        font-size: 0.75rem;
+    }
+
+    .breadcrumb-list {
+        gap: 0.25rem;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .breadcrumb-separator {
+    transform: scaleX(-1);
+}
+</style>

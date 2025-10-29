@@ -1,0 +1,256 @@
+{
+  "comparisons": {
+    "netflix-vs-disney": {
+      "title": "Netflix vs Disney+",
+      "category": "streaming",
+      "productA": "netflix",
+      "productB": "disney",
+      "url": "/en/netflix-vs-disney.html",
+      "description": "Compare streaming quality, content libraries, and pricing",
+      "readingTime": "5 min",
+      "popularity": 95
+    },
+    "netflix-vs-hbo": {
+      "title": "Netflix vs HBO Max",
+      "category": "streaming",
+      "productA": "netflix",
+      "productB": "hbo",
+      "url": "/en/netflix-vs-hbo.html",
+      "description": "Premium content vs massive library comparison",
+      "readingTime": "5 min",
+      "popularity": 88
+    },
+    "netflix-vs-prime": {
+      "title": "Netflix vs Amazon Prime",
+      "category": "streaming",
+      "productA": "netflix",
+      "productB": "prime",
+      "url": "/en/netflix-vs-prime.html",
+      "description": "Which offers better value for money?",
+      "readingTime": "6 min",
+      "popularity": 85
+    },
+    "hulu-vs-netflix": {
+      "title": "Hulu vs Netflix",
+      "category": "streaming",
+      "productA": "hulu",
+      "productB": "netflix",
+      "url": "/en/hulu-vs-netflix.html",
+      "description": "Compare next-day TV vs original content",
+      "readingTime": "5 min",
+      "popularity": 82
+    },
+    "disney-plus-vs-hbo-max": {
+      "title": "Disney+ vs HBO Max",
+      "category": "streaming",
+      "productA": "disney",
+      "productB": "hbo",
+      "url": "/en/disney-plus-vs-hbo-max.html",
+      "description": "Family content vs premium shows",
+      "readingTime": "5 min",
+      "popularity": 80
+    },
+    "cable-vs-streaming": {
+      "title": "Cable vs Streaming",
+      "category": "streaming",
+      "productA": "cable",
+      "productB": "streaming",
+      "url": "/en/cable-vs-streaming.html",
+      "description": "Traditional vs modern entertainment",
+      "readingTime": "8 min",
+      "popularity": 75
+    },
+    "iphone-vs-samsung": {
+      "title": "iPhone vs Samsung",
+      "category": "tech",
+      "productA": "iphone",
+      "productB": "samsung",
+      "url": "/en/iphone-vs-samsung.html",
+      "description": "Compare specs, camera, battery, and price",
+      "readingTime": "7 min",
+      "popularity": 98
+    },
+    "android-vs-ios": {
+      "title": "Android vs iOS",
+      "category": "tech",
+      "productA": "android",
+      "productB": "ios",
+      "url": "/en/android-vs-ios.html",
+      "description": "Operating system comparison",
+      "readingTime": "6 min",
+      "popularity": 92
+    },
+    "mac-vs-pc": {
+      "title": "Mac vs PC",
+      "category": "tech",
+      "productA": "mac",
+      "productB": "pc",
+      "url": "/en/mac-vs-pc.html",
+      "description": "Which computer is better for you?",
+      "readingTime": "6 min",
+      "popularity": 90
+    },
+    "windows-vs-mac": {
+      "title": "Windows vs Mac",
+      "category": "tech",
+      "productA": "windows",
+      "productB": "mac",
+      "url": "/en/windows-vs-mac.html",
+      "description": "OS comparison for work and gaming",
+      "readingTime": "6 min",
+      "popularity": 90
+    },
+    "playstation-vs-xbox": {
+      "title": "PlayStation vs Xbox",
+      "category": "tech",
+      "productA": "playstation",
+      "productB": "xbox",
+      "url": "/en/playstation-vs-xbox.html",
+      "description": "Compare specs, exclusives, gaming experience",
+      "readingTime": "7 min",
+      "popularity": 94
+    },
+    "airbnb-vs-hotel": {
+      "title": "Airbnb vs Hotel",
+      "category": "travel",
+      "productA": "airbnb",
+      "productB": "hotel",
+      "url": "/en/airbnb-vs-hotel.html",
+      "description": "Accommodation options comparison",
+      "readingTime": "5 min",
+      "popularity": 85
+    },
+    "uber-vs-lyft": {
+      "title": "Uber vs Lyft",
+      "category": "travel",
+      "productA": "uber",
+      "productB": "lyft",
+      "url": "/en/uber-vs-lyft.html",
+      "description": "Rideshare services comparison",
+      "readingTime": "4 min",
+      "popularity": 80
+    },
+    "booking-vs-expedia": {
+      "title": "Booking vs Expedia",
+      "category": "travel",
+      "productA": "booking",
+      "productB": "expedia",
+      "url": "/en/booking-vs-expedia.html",
+      "description": "Travel booking platforms compared",
+      "readingTime": "5 min",
+      "popularity": 75
+    },
+    "keto-vs-paleo": {
+      "title": "Keto vs Paleo",
+      "category": "lifestyle",
+      "productA": "keto",
+      "productB": "paleo",
+      "url": "/en/keto-vs-paleo.html",
+      "description": "Diet comparison for health",
+      "readingTime": "6 min",
+      "popularity": 88
+    },
+    "coffee-vs-tea": {
+      "title": "Coffee vs Tea",
+      "category": "lifestyle",
+      "productA": "coffee",
+      "productB": "tea",
+      "url": "/en/coffee-vs-tea.html",
+      "description": "Health benefits and caffeine content",
+      "readingTime": "5 min",
+      "popularity": 82
+    },
+    "gym-vs-home": {
+      "title": "Gym vs Home Workout",
+      "category": "lifestyle",
+      "productA": "gym",
+      "productB": "home",
+      "url": "/en/gym-vs-home.html",
+      "description": "Where to exercise for best results",
+      "readingTime": "5 min",
+      "popularity": 85
+    },
+    "amazon-vs-walmart": {
+      "title": "Amazon vs Walmart",
+      "category": "shopping",
+      "productA": "amazon",
+      "productB": "walmart",
+      "url": "/en/amazon-vs-walmart.html",
+      "description": "E-commerce giants compared",
+      "readingTime": "6 min",
+      "popularity": 90
+    },
+    "shopify-vs-wix": {
+      "title": "Shopify vs Wix",
+      "category": "shopping",
+      "productA": "shopify",
+      "productB": "wix",
+      "url": "/en/shopify-vs-wix.html",
+      "description": "E-commerce platform comparison",
+      "readingTime": "7 min",
+      "popularity": 85
+    }
+  },
+  "categories": {
+    "streaming": {
+      "name": "Streaming Services",
+      "url": "/en/streaming.html",
+      "description": "Compare Netflix, Disney+, HBO Max, and all major streaming platforms",
+      "comparisons": [
+        "netflix-vs-disney",
+        "netflix-vs-hbo",
+        "netflix-vs-prime",
+        "hulu-vs-netflix",
+        "disney-plus-vs-hbo-max",
+        "cable-vs-streaming"
+      ]
+    },
+    "tech": {
+      "name": "Technology",
+      "url": "/en/tech.html",
+      "description": "Smartphones, laptops, operating systems, and gaming consoles",
+      "comparisons": [
+        "iphone-vs-samsung",
+        "android-vs-ios",
+        "mac-vs-pc",
+        "windows-vs-mac",
+        "playstation-vs-xbox"
+      ]
+    },
+    "travel": {
+      "name": "Travel",
+      "url": "/en/travel.html",
+      "description": "Accommodation, transportation, and booking platforms",
+      "comparisons": [
+        "airbnb-vs-hotel",
+        "uber-vs-lyft",
+        "booking-vs-expedia"
+      ]
+    },
+    "lifestyle": {
+      "name": "Lifestyle",
+      "url": "/en/lifestyle.html",
+      "description": "Health, fitness, diet, and everyday choices",
+      "comparisons": [
+        "keto-vs-paleo",
+        "coffee-vs-tea",
+        "gym-vs-home"
+      ]
+    },
+    "shopping": {
+      "name": "Shopping & E-commerce",
+      "url": "/en/shopping.html",
+      "description": "Online stores and e-commerce platforms",
+      "comparisons": [
+        "amazon-vs-walmart",
+        "shopify-vs-wix"
+      ]
+    }
+  },
+  "metadata": {
+    "lastUpdated": "2025-10-26",
+    "totalComparisons": 19,
+    "totalCategories": 5,
+    "version": "1.0"
+  }
+}

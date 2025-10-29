@@ -1,0 +1,481 @@
+/**
+ * Price History Tracker Styles
+ * تصميم عرض تاريخ الأسعار
+ */
+
+.price-history-chart {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 2px solid var(--border, #e0e0e0);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.chart-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.chart-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text, #000);
+    margin: 0 0 10px 0;
+}
+
+.chart-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary, #666);
+    font-weight: 500;
+}
+
+/* Price Stats Cards */
+.price-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #000;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.stat-change {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.stat-change.up {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.stat-change.down {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.stat-change.stable {
+    background: #e5e7eb;
+    color: #6b7280;
+}
+
+.stat-subtext {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+/* Chart Container */
+.chart-container {
+    margin-bottom: 30px;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    align-items: flex-end;
+    height: 250px;
+    padding: 20px 0;
+    position: relative;
+}
+
+.chart-grid::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+/* Chart Bars */
+.chart-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.chart-bar {
+    width: 100%;
+    background: linear-gradient(180deg, #6b7280 0%, #4b5563 100%);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    transition: all 0.3s ease;
+    min-height: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 8px;
+}
+
+.chart-bar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.chart-bar.current {
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.chart-bar.lowest {
+    background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+}
+
+.chart-bar.highest {
+    background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+}
+
+.bar-price {
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.bar-badge {
+    position: absolute;
+    top: -25px;
+    background: #000;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.lowest-badge {
+    background: #10b981;
+}
+
+.highest-badge {
+    background: #ef4444;
+}
+
+.current-badge {
+    background: #3b82f6;
+}
+
+/* Chart Labels */
+.chart-labels {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.chart-label {
+    text-align: center;
+    font-size: 11px;
+    color: #666;
+    font-weight: 600;
+}
+
+/* Price Recommendation */
+.price-recommendation {
+    margin-top: 25px;
+}
+
+.recommendation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.recommendation.good {
+    background: #d1fae5;
+    color: #065f46;
+    border: 2px solid #10b981;
+}
+
+.recommendation.bad {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 2px solid #ef4444;
+}
+
+.recommendation.neutral {
+    background: #fef3c7;
+    color: #92400e;
+    border: 2px solid #f59e0b;
+}
+
+.rec-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.rec-text {
+    flex: 1;
+    line-height: 1.5;
+}
+
+/* Quick View (Compact Version) */
+.price-quick-view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin: 20px 0;
+}
+
+.price-current {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.price-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+}
+
+.price-amount {
+    font-size: 28px;
+    font-weight: 800;
+    color: #000;
+}
+
+.price-trend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.price-trend.trend-up {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.price-trend.trend-down {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.price-trend.trend-stable {
+    background: #e5e7eb;
+    color: #6b7280;
+}
+
+.trend-icon {
+    font-size: 18px;
+}
+
+.trend-value {
+    font-size: 16px;
+}
+
+.trend-period {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .price-history-chart {
+        padding: 20px;
+    }
+    
+    .chart-title {
+        font-size: 22px;
+    }
+    
+    .price-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stat-value {
+        font-size: 24px;
+    }
+    
+    .chart-grid {
+        height: 200px;
+    }
+    
+    .bar-price {
+        font-size: 10px;
+    }
+    
+    .chart-label {
+        font-size: 9px;
+    }
+    
+    .recommendation {
+        font-size: 14px;
+        padding: 15px;
+    }
+    
+    .rec-icon {
+        font-size: 24px;
+    }
+    
+    .price-quick-view {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-grid {
+        gap: 5px;
+    }
+    
+    .stat-value {
+        font-size: 28px;
+    }
+    
+    .price-amount {
+        font-size: 24px;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .recommendation {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .price-current {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .price-trend {
+    flex-direction: row-reverse;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    .price-history-chart {
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        border-color: #374151;
+    }
+    
+    .chart-title {
+        color: #f9fafb;
+    }
+    
+    .chart-subtitle {
+        color: #9ca3af;
+    }
+    
+    .stat-card {
+        background: #1f2937;
+        border-color: #374151;
+    }
+    
+    .stat-card:hover {
+        border-color: #fff;
+    }
+    
+    .stat-value {
+        color: #f9fafb;
+    }
+    
+    .price-quick-view {
+        background: #1f2937;
+        border-color: #374151;
+    }
+    
+    .price-amount {
+        color: #f9fafb;
+    }
+    
+    .chart-label {
+        color: #9ca3af;
+    }
+}
+
+/* Animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.price-history-chart {
+    animation: slideUp 0.5s ease;
+}
+
+.chart-bar {
+    animation: barGrow 0.6s ease forwards;
+    transform-origin: bottom;
+}
+
+@keyframes barGrow {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+
+.stat-card:nth-child(1) { animation: slideUp 0.5s ease 0.1s both; }
+.stat-card:nth-child(2) { animation: slideUp 0.5s ease 0.2s both; }
+.stat-card:nth-child(3) { animation: slideUp 0.5s ease 0.3s both; }
+.stat-card:nth-child(4) { animation: slideUp 0.5s ease 0.4s both; }

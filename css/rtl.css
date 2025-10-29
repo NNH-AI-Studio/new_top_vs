@@ -1,0 +1,65 @@
+/* VS Hub - RTL Support for Arabic */
+/* Clean and minimal RTL adjustments */
+
+[dir="rtl"] {
+    direction: rtl;
+}
+
+/* Navigation RTL */
+[dir="rtl"] .nav-links {
+    flex-direction: row-reverse;
+}
+
+/* Table RTL */
+[dir="rtl"] .comparison-table th,
+[dir="rtl"] .comparison-table td {
+    text-align: right;
+}
+
+/* Lists RTL */
+[dir="rtl"] .recommendation li {
+    padding-right: 0;
+    padding-left: 1.5rem;
+}
+
+[dir="rtl"] .recommendation li:before {
+    right: auto;
+    left: 0;
+}
+
+[dir="rtl"] .section-content ul {
+    padding-right: 0;
+}
+
+/* Footer RTL */
+[dir="rtl"] .footer-section {
+    text-align: right;
+}
+
+/* Features List RTL */
+[dir="rtl"] .features-list {
+    text-align: right;
+}
+
+[dir="rtl"] .language-card.english .features-list {
+    text-align: left;
+}
+
+/* Pros and Cons RTL */
+[dir="rtl"] .pros li,
+[dir="rtl"] .cons li {
+    padding-left: 0;
+    padding-right: 1.5rem;
+}
+
+[dir="rtl"] .pros li:before,
+[dir="rtl"] .cons li:before {
+    left: auto;
+    right: 0;
+}
+
+/* Cost Example RTL */
+[dir="rtl"] .cost-example {
+    border-left: none;
+    border-right: 4px solid var(--primary);
+}

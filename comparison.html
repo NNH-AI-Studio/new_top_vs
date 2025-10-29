@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Loading...</title>
+    <meta name="description" id="page-description" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/theme-minimal.css">
+    <link rel="stylesheet" href="/css/features.css">
+    <link rel="stylesheet" href="/css/rating-system.css">
+    <link rel="stylesheet" href="/css/comments.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <style>
+        .loading-skeleton {
+            animation: skeleton-loading 1s linear infinite alternate;
+        }
+        @keyframes skeleton-loading {
+            0% { background-color: hsl(200, 20%, 80%); }
+            100% { background-color: hsl(200, 20%, 95%); }
+        }
+        .comparison-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .comparison-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .comparison-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            color: #5a6c7d;
+        }
+        .comparison-content {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+        .comparison-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .comparison-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        .vs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .vs-item {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .vs-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .vs-item ul {
+            list-style: none;
+            padding: 0;
+        }
+        .vs-item li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .vs-item li:last-child {
+            border-bottom: none;
+        }
+        .rating-section {
+            background: #fff9e6;
+            border: 2px solid #ffd700;
+        }
+        .comments-section {
+            background: #f0f8ff;
+            border: 2px solid #87ceeb;
+        }
+        .star-rating {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 2rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        .star {
+            cursor: pointer;
+            color: #ddd;
+            transition: color 0.2s;
+        }
+        .star.active, .star:hover {
+            color: #ffd700;
+        }
+        .rating-stats {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .rating-stats .average {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .comment-form {
+            margin: 2rem 0;
+        }
+        .comment-form input, .comment-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        .comment-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .comment-form button {
+            background: #3498db;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .comment-form button:hover {
+            background: #2980b9;
+        }
+        .comment-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            color: #5a6c7d;
+        }
+        .comment-author {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .language-switch {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .language-switch button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: #7f8c8d;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .language-switch button:hover {
+            background: #f8f9fa;
+        }
+        .language-switch button.active {
+            background: #3498db;
+            color: white;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+        }
+        @media (max-width: 768px) {
+            .language-switch {
+                position: static;
+                margin: 1rem auto;
+                width: fit-content;
+            }
+        }
+        .favorite-btn {
+            padding: 0.75rem 2rem;
+            border: 2px solid #e74c3c;
+            background: white;
+            color: #e74c3c;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .favorite-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
+        }
+        .favorite-btn.favorited {
+            background: #e74c3c;
+            color: white;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 768px) {
+            .vs-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Products<span>VS</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/en/" class="nav-link">Comparisons</a>
+                <a href="/favorites.html" class="nav-link">❤️ Favorites</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Language Switch -->
+    <div class="language-switch">
+        <button id="lang-en" class="active">
+            <span>🇬🇧</span>
+            <span>EN</span>
+        </button>
+        <button id="lang-ar">
+            <span>🇸🇦</span>
+            <span>AR</span>
+        </button>
+    </div>
+
+    <!-- Comparison Header -->
+    <div class="comparison-header">
+        <div class="container">
+            <h1 id="comparison-title" class="loading-skeleton" style="height: 60px; border-radius: 8px;"></h1>
+            <div class="comparison-meta">
+                <span id="category-badge"></span>
+                <span id="view-count"></span>
+                <span id="rating-display"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Content -->
+    <div class="comparison-content">
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button id="favorite-btn" class="favorite-btn">
+                <span id="favorite-icon">🤍</span>
+                <span id="favorite-text">Save to Favorites</span>
+            </button>
+        </div>
+
+        <div id="content-container"></div>
+
+        <!-- Rating Section -->
+        <div class="comparison-section rating-section">
+            <h2 id="rating-heading">Rate this Comparison</h2>
+            <div class="rating-stats">
+                <div class="average" id="avg-rating">-</div>
+                <div id="rating-count">No ratings yet</div>
+            </div>
+            <div class="star-rating" id="star-rating">
+                <span class="star" data-rating="1">★</span>
+                <span class="star" data-rating="2">★</span>
+                <span class="star" data-rating="3">★</span>
+                <span class="star" data-rating="4">★</span>
+                <span class="star" data-rating="5">★</span>
+            </div>
+            <div id="rating-message" style="text-align: center; color: #27ae60;"></div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comparison-section comments-section">
+            <h2 id="comments-heading">Comments</h2>
+
+            <div class="comment-form">
+                <input type="text" id="comment-name" placeholder="Your Name" required>
+                <input type="email" id="comment-email" placeholder="Your Email" required>
+                <textarea id="comment-text" placeholder="Share your thoughts..." required></textarea>
+                <button id="submit-comment">Submit Comment</button>
+            </div>
+
+            <div id="comments-list"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Products VS</h4>
+                <p>Professional comparison website providing detailed analysis in both English and Arabic languages.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/en/">English Comparisons</a></li>
+                    <li><a href="/ar/">Arabic Comparisons</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: info@productsvs.com</p>
+                <p>&copy; 2025 Products VS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/pages/comparison.js"></script>
+</body>
+</html>

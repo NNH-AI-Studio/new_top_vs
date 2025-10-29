@@ -1,0 +1,185 @@
+/**
+ * Why Better Section - Pure White Background + Black Text Only
+ */
+
+/* Why Better Section */
+.why-better-section {
+    padding: 60px 0;
+    background: #ffffff;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+.why-better-section .section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+    color: #000000;
+}
+
+.why-better-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.why-better-card {
+    background: #ffffff;
+    border: 2px solid #000000;
+    padding: 30px;
+}
+
+.card-header {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #000000;
+}
+
+.card-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #000000;
+}
+
+.advantages-count {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.advantages-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.advantage-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #000000;
+}
+
+.advantage-item:last-child {
+    border-bottom: none;
+}
+
+.check-icon {
+    font-size: 16px;
+    font-weight: 900;
+    color: #000000;
+    flex-shrink: 0;
+}
+
+.advantage-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #000000;
+}
+
+.vs-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vs-text {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .why-better-grid {
+        gap: 30px;
+    }
+    
+    .why-better-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .why-better-section {
+        padding: 40px 0;
+    }
+    
+    .why-better-section .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .why-better-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .vs-divider {
+        transform: rotate(90deg);
+        margin: 10px 0;
+    }
+    
+    .card-header h3 {
+        font-size: 20px;
+    }
+    
+    .advantage-text {
+        font-size: 14px;
+    }
+}
+
+/* Dark Mode - Keep White Background Always */
+@media (prefers-color-scheme: dark) {
+    .why-better-section {
+        background: #ffffff !important;
+        border-color: #000000 !important;
+    }
+    
+    .why-better-card {
+        background: #ffffff !important;
+        border-color: #000000 !important;
+    }
+    
+    .card-header {
+        border-color: #000000 !important;
+    }
+    
+    .card-header h3 {
+        color: #000000 !important;
+    }
+    
+    .advantages-count {
+        color: #000000 !important;
+    }
+    
+    .advantage-item {
+        border-color: #000000 !important;
+    }
+    
+    .check-icon {
+        color: #000000 !important;
+    }
+    
+    .advantage-text {
+        color: #000000 !important;
+    }
+    
+    .vs-text {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-color: #000000 !important;
+    }
+}

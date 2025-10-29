@@ -1,0 +1,248 @@
+<!-- Enhanced Related Comparisons Section -->
+<!-- Add this before the footer on comparison pages -->
+
+<section class="related-comparisons" aria-labelledby="related-title">
+    <div class="container">
+        <h2 id="related-title" class="section-title">Related Comparisons</h2>
+        <p class="section-subtitle">Explore similar comparisons to make better decisions</p>
+
+        <div class="comparisons-grid">
+            <!-- Same Category Comparison 1 -->
+            <article class="comparison-card">
+                <div class="card-badge">Same Category</div>
+                <h3 class="card-title">
+                    <a href="/en/netflix-vs-hbo.html"
+                       rel="related"
+                       title="Netflix vs HBO Max - Detailed Streaming Comparison">
+                        Netflix vs HBO Max
+                    </a>
+                </h3>
+                <p class="card-description">
+                    Compare streaming quality, content libraries, and pricing
+                </p>
+                <div class="card-meta">
+                    <span class="card-category">Streaming</span>
+                    <span class="card-reading-time">⏱ 5 min read</span>
+                </div>
+            </article>
+
+            <!-- Same Product A Comparison -->
+            <article class="comparison-card">
+                <div class="card-badge">Netflix</div>
+                <h3 class="card-title">
+                    <a href="/en/netflix-vs-prime.html"
+                       rel="related"
+                       title="Netflix vs Amazon Prime Video - Full Comparison">
+                        Netflix vs Amazon Prime
+                    </a>
+                </h3>
+                <p class="card-description">
+                    Which streaming service offers better value for money?
+                </p>
+                <div class="card-meta">
+                    <span class="card-category">Streaming</span>
+                    <span class="card-reading-time">⏱ 6 min read</span>
+                </div>
+            </article>
+
+            <!-- Same Product B Comparison -->
+            <article class="comparison-card">
+                <div class="card-badge">Disney+</div>
+                <h3 class="card-title">
+                    <a href="/en/disney-plus-vs-hbo-max.html"
+                       rel="related"
+                       title="Disney+ vs HBO Max - Which is Better?">
+                        Disney+ vs HBO Max
+                    </a>
+                </h3>
+                <p class="card-description">
+                    Family content vs premium shows - detailed comparison
+                </p>
+                <div class="card-meta">
+                    <span class="card-category">Streaming</span>
+                    <span class="card-reading-time">⏱ 5 min read</span>
+                </div>
+            </article>
+
+            <!-- Broader Topic -->
+            <article class="comparison-card">
+                <div class="card-badge">Broader</div>
+                <h3 class="card-title">
+                    <a href="/en/cable-vs-streaming.html"
+                       rel="related"
+                       title="Cable TV vs Streaming Services - Complete Guide">
+                        Cable vs Streaming
+                    </a>
+                </h3>
+                <p class="card-description">
+                    Traditional vs modern entertainment - which is better?
+                </p>
+                <div class="card-meta">
+                    <span class="card-category">Streaming</span>
+                    <span class="card-reading-time">⏱ 8 min read</span>
+                </div>
+            </article>
+        </div>
+
+        <!-- Link to Category Hub -->
+        <div class="view-all-link">
+            <a href="/en/streaming.html"
+               class="cta-button"
+               title="View all streaming service comparisons">
+                View All Streaming Comparisons →
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+.related-comparisons {
+    padding: 4rem 0;
+    background: var(--bg-secondary, #f8f8f8);
+    border-top: 1px solid var(--border, #e0e0e0);
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary, #666);
+    margin-bottom: 3rem;
+    font-size: 1.125rem;
+}
+
+.comparisons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.comparison-card {
+    background: var(--bg-primary, #fff);
+    border: 2px solid var(--border, #e0e0e0);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.comparison-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--text, #000);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--text, #000);
+    color: var(--bg, #fff);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.card-title a {
+    color: var(--text, #000);
+    text-decoration: none;
+    border: none;
+}
+
+.card-title a:hover {
+    text-decoration: underline;
+}
+
+.card-description {
+    color: var(--text-secondary, #666);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border, #e0e0e0);
+    font-size: 0.875rem;
+}
+
+.card-category {
+    font-weight: 600;
+    color: var(--text, #000);
+    text-transform: capitalize;
+}
+
+.card-reading-time {
+    color: var(--text-secondary, #666);
+}
+
+.view-all-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--text, #000);
+    color: var(--bg, #fff);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--text, #000);
+}
+
+.cta-button:hover {
+    background: var(--bg, #fff);
+    color: var(--text, #000);
+    transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .related-comparisons {
+        padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .comparisons-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .card-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .cta-button::after {
+    content: "←";
+    margin-right: 0.5rem;
+}
+
+[dir="ltr"] .cta-button::after {
+    content: "→";
+    margin-left: 0.5rem;
+}
+</style>

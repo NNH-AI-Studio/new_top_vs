@@ -1,0 +1,36 @@
+<!-- Breadcrumbs Navigation -->
+<nav class="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <div class="container">
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/" itemprop="item">
+                <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1" />
+        </span>
+        <span>›</span>
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/en/{{ page.category }}.html" itemprop="item">
+                <span itemprop="name">{{ page.category_name }}</span>
+            </a>
+            <meta itemprop="position" content="2" />
+        </span>
+        <span>›</span>
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">{{ page.title }}</span>
+            <meta itemprop="position" content="3" />
+        </span>
+    </div>
+</nav>
+
+<!-- For Arabic pages (RTL) -->
+<!-- 
+<nav class="breadcrumbs" aria-label="التنقل" dir="rtl">
+    <div class="container">
+        <a href="/">الرئيسية</a>
+        <span>‹</span>
+        <a href="/ar/">المقارنات</a>
+        <span>‹</span>
+        <span class="current-page">الصفحة الحالية</span>
+    </div>
+</nav>
+-->

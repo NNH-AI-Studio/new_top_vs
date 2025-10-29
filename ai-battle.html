@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Battle - Compare Products Instantly | Products VS</title>
+    <meta name="description" content="Enter any two products and get instant AI-powered comparison with visual battle results in 2 seconds!">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/theme-minimal.css">
+    <link rel="stylesheet" href="/css/features.css">
+    <link rel="stylesheet" href="/css/ai-battle.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://www.productsvs.com/ai-battle.html">
+
+    <meta property="og:title" content="AI Battle - Instant Product Comparison">
+    <meta property="og:description" content="Compare any two products instantly with AI-powered analysis">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.productsvs.com/ai-battle.html">
+    <meta property="og:image" content="https://www.productsvs.com/images/og-image.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script src="/js/analytics.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Products<span>VS</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/en/" class="nav-link">Comparisons</a>
+                <a href="/ai-battle.html" class="nav-link active">AI Battle</a>
+                <a href="/favorites.html" class="nav-link">Favorites</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+                <div class="language-switcher">
+                    <a href="/ar/ai-battle.html" class="lang-btn">العربية</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="container">
+            <a href="/">Home</a>
+            <span>›</span>
+            <span class="current">AI Battle</span>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">AI Battle Arena</h1>
+                <p class="hero-subtitle">Compare any two products instantly with AI-powered analysis</p>
+                <div class="hero-badge">Results in 2 seconds</div>
+            </div>
+        </section>
+
+        <section id="battleInput" class="battle-input-section">
+            <div class="container">
+                <div class="battle-card">
+                    <h2 class="section-title">Choose Your Competitors</h2>
+
+                    <div class="input-grid">
+                        <div class="product-input-wrapper">
+                            <label for="product1">Product 1</label>
+                            <input
+                                type="text"
+                                id="product1"
+                                class="product-input"
+                                placeholder="e.g., Netflix, iPhone, Mac..."
+                                autocomplete="off"
+                            >
+                            <div id="suggestions1" class="suggestions-dropdown"></div>
+                        </div>
+
+                        <div class="vs-divider">
+                            <span class="vs-text">VS</span>
+                        </div>
+
+                        <div class="product-input-wrapper">
+                            <label for="product2">Product 2</label>
+                            <input
+                                type="text"
+                                id="product2"
+                                class="product-input"
+                                placeholder="e.g., Disney+, Samsung, PC..."
+                                autocomplete="off"
+                            >
+                            <div id="suggestions2" class="suggestions-dropdown"></div>
+                        </div>
+                    </div>
+
+                    <button id="startBattleBtn" class="start-battle-btn" disabled>
+                        <span class="btn-icon">⚔️</span>
+                        <span>Start Battle</span>
+                    </button>
+
+                    <div class="quick-battles">
+                        <h3>Quick Battles</h3>
+                        <div class="quick-battle-grid">
+                            <button class="quick-battle-btn" data-p1="netflix" data-p2="disney-plus">
+                                Netflix vs Disney+
+                            </button>
+                            <button class="quick-battle-btn" data-p1="iphone" data-p2="samsung-galaxy">
+                                iPhone vs Samsung
+                            </button>
+                            <button class="quick-battle-btn" data-p1="playstation" data-p2="xbox">
+                                PlayStation vs Xbox
+                            </button>
+                            <button class="quick-battle-btn" data-p1="mac" data-p2="pc">
+                                Mac vs PC
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="battleLoading" class="battle-loading-section" style="display: none;">
+            <div class="container">
+                <div class="loading-animation">
+                    <div class="loading-spinner"></div>
+                    <h2 class="loading-text">Analyzing Products...</h2>
+                    <p class="loading-subtext">AI is calculating scores across multiple criteria</p>
+                    <div class="loading-progress">
+                        <div class="progress-bar" id="loadingBar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="battleResult" class="battle-result-section" style="display: none;">
+            <div class="container">
+                <div class="battle-arena">
+                    <div class="product-side winner-side" id="winnerSide">
+                        <div class="winner-badge">WINNER</div>
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img id="winnerImage" src="" alt="" class="product-image">
+                            </div>
+                            <div class="product-logo-wrapper">
+                                <img id="winnerLogo" src="" alt="" class="product-logo">
+                            </div>
+                            <h3 id="winnerName" class="product-name"></h3>
+                            <div class="score-display winner-score">
+                                <div class="score-number" id="winnerScore">0</div>
+                                <div class="score-label">Total Score</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vs-divider-result">
+                        <div class="vs-circle">VS</div>
+                    </div>
+
+                    <div class="product-side loser-side" id="loserSide">
+                        <div class="loser-badge">DEFEATED</div>
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img id="loserImage" src="" alt="" class="product-image">
+                            </div>
+                            <div class="product-logo-wrapper">
+                                <img id="loserLogo" src="" alt="" class="product-logo">
+                            </div>
+                            <h3 id="loserName" class="product-name"></h3>
+                            <div class="score-display loser-score">
+                                <div class="score-number" id="loserScore">0</div>
+                                <div class="score-label">Total Score</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-actions">
+                    <button id="viewDetailsBtn" class="action-btn primary-btn">
+                        View Detailed Comparison
+                    </button>
+                    <button id="newBattleBtn" class="action-btn secondary-btn">
+                        New Battle
+                    </button>
+                    <button id="shareBattleBtn" class="action-btn secondary-btn">
+                        Share Result
+                    </button>
+                </div>
+
+                <div class="detailed-scores" id="detailedScores">
+                    <h2 class="section-title">Score Breakdown</h2>
+                    <div class="scores-grid" id="scoresGrid"></div>
+                </div>
+
+                <div class="product-details-section">
+                    <div class="details-grid">
+                        <div class="detail-card winner-detail">
+                            <h3 id="winnerNameDetail"></h3>
+                            <div class="pros-cons">
+                                <div class="pros-section">
+                                    <h4>Strengths</h4>
+                                    <ul id="winnerPros" class="pros-list"></ul>
+                                </div>
+                                <div class="cons-section">
+                                    <h4>Weaknesses</h4>
+                                    <ul id="winnerCons" class="cons-list"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-card loser-detail">
+                            <h3 id="loserNameDetail"></h3>
+                            <div class="pros-cons">
+                                <div class="pros-section">
+                                    <h4>Strengths</h4>
+                                    <ul id="loserPros" class="pros-list"></ul>
+                                </div>
+                                <div class="cons-section">
+                                    <h4>Weaknesses</h4>
+                                    <ul id="loserCons" class="cons-list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">Products<span>VS</span></h3>
+                    <p class="footer-text">AI-powered product comparisons for smarter decisions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/en/">All Comparisons</a></li>
+                        <li><a href="/ai-battle.html">AI Battle</a></li>
+                        <li><a href="/about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Products VS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/pages/ai-battle.js"></script>
+</body>
+</html>
