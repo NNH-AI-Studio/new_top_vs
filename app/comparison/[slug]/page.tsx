@@ -3,12 +3,12 @@ import ComparisonClientPage from "./ComparisonClientPage"
 import { getComparisonBySlug, getAllComparisonSlugs } from "@/lib/comparisons-data"
 
 export async function generateStaticParams() {
-  const slugs = getAllComparisonSlugs()
+  const slugs = await getAllComparisonSlugs()
   return slugs.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const comparison = getComparisonBySlug(params.slug)
+  const comparison = await getComparisonBySlug(params.slug)
 
   if (!comparison) {
     return {

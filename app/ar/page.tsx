@@ -1,18 +1,13 @@
 import type { Metadata } from "next"
 import PageLayout from "@/components/page-layout"
 import Link from "next/link"
-import { createClient } from "@supabase/supabase-js"
+import { supabase } from "@/lib/supabase"
 
 export const metadata: Metadata = {
   title: "جميع المقارنات - Products VS",
   description:
     "تصفح جميع مقارنات المنتجات والخدمات. التكنولوجيا، الترفيه، نمط الحياة، والمزيد. اتخذ قرارات مستنيرة مع تحليل مفصل.",
 }
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
 
 async function getComparisons() {
   const { data: categories } = await supabase
